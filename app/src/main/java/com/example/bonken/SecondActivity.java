@@ -24,11 +24,11 @@ public class SecondActivity extends AppCompatActivity {
             R.string.score_not_24, R.string.score_not_24, R.string.score_not_10,
             R.string.score_not_10, R.string.score_not_10, R.string.score_not_26,
             R.string.score_not_26, R.string.score_not_26, R.string.score_not_26};
-    private final Integer[] roundNames = {R.string.Duiken, R.string.Hartenjagen, R.string.Herenboeren,
-            R.string.Vrouwen, R.string.Hartenheer, R.string.Laatste_slag, R.string.Domino,
-            R.string.Troeven1, R.string.Troeven2, R.string.Troeven3, R.string.Troeven4};
-    private List<String> troeven = new ArrayList<>();
-    private String removedTroef;
+    private final Integer[] roundNames = {R.string.ducking, R.string.no_hearts, R.string.no_men,
+            R.string.no_queens, R.string.no_king_of_hearts, R.string.last_trick, R.string.domino,
+            R.string.trumps1, R.string.trumps2, R.string.trumps3, R.string.trumps4};
+    private List<String> trumps = new ArrayList<>();
+    private String removedTrump;
 
     private TextView[] playerNames = new TextView[4];
     private EditText[] tempScores = new EditText[4];
@@ -55,12 +55,12 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String[] names = intent.getStringArrayExtra(MainActivity.NAMES);
         roundCount = 0;
-        troeven.addAll(List.of("Kies troef", "Harten", "Klaveren", "Ruiten", "Schoppen", "Geen troef"));
+        trumps.addAll(List.of("Choose Trump", "Hearts", "Clubs", "Diamonds", "Spades", "No Trump"));
 
         //Dropdown menu for troeven
         dropDown = findViewById(R.id.spinner);
         dropDown.setVisibility(View.INVISIBLE);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, troeven);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, trumps);
         dropDown.setAdapter(adapter);
 
         //Layout declarations
@@ -91,7 +91,7 @@ public class SecondActivity extends AppCompatActivity {
         warningText = findViewById(R.id.warningText);
         endOfGameText = findViewById(R.id.endOfGameText);
         roundName = findViewById(R.id.textview_roundName);
-        roundName.setText(getResources().getString(R.string.Duiken));
+        roundName.setText(getResources().getString(R.string.ducking));
 
         //Functionality for back button
         previousButton = findViewById(R.id.button_previous);
@@ -128,7 +128,7 @@ public class SecondActivity extends AppCompatActivity {
                         dropDown.setVisibility(View.INVISIBLE);
                     }
                     if (roundCount > 6) {//Removed troef should be added to list again
-                        troeven.add(removedTroef);
+                        trumps.add(removedTrump);
                     }
                     roundCount--;
                     roundName.setText(getResources().getString(roundNames[roundCount]));
@@ -152,8 +152,8 @@ public class SecondActivity extends AppCompatActivity {
                         return;
                     }
                     //Checks if troef is selected
-                    if (roundCount > 6 && dropDown.getSelectedItem().equals("Kies troef")) {
-                        warningText.setText(getResources().getString(R.string.troef_not_selected));
+                    if (roundCount > 6 && dropDown.getSelectedItem().equals("Choose Trump")) {
+                        warningText.setText(getResources().getString(R.string.trump_not_selected));
                         return;
                     }
                     warningText.setText("");
@@ -182,11 +182,11 @@ public class SecondActivity extends AppCompatActivity {
                     } else if (roundCount < 11) {//Troef rounds
                         roundName.setText(getResources().getString(roundNames[roundCount]));
                         dropDown.setVisibility(View.VISIBLE);
-                        if (dropDown.getSelectedItem().equals("Kies troef")) {//Troef should be selected
+                        if (dropDown.getSelectedItem().equals("Choose Trump")) {//Troef should be selected
                             return;
                         } else {//Troef is selected
-                            removedTroef = dropDown.getSelectedItem().toString();
-                            troeven.remove(dropDown.getSelectedItem());
+                            removedTrump = dropDown.getSelectedItem().toString();
+                            trumps.remove(dropDown.getSelectedItem());
                             dropDown.setAdapter(adapter);
                         }
                     } else {//End of game

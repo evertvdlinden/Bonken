@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/backGround">
+
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_shape"
+        android:padding="5pt"
+        android:text="@string/play"
+        android:textColor="@color/yellow"
+        android:textSize="24sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintBottom_toTopOf="@+id/clearNamesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_roundName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/enter_names"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/clearNamesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_roundName">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player1"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/editTextPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="8"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player2"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/editTextPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="8"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textPlayer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player3"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/editTextPlayer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="8"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textPlayer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player4"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/editTextPlayer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="8"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/clearNamesButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_shape"
+        android:padding="5pt"
+        android:text="@string/clear_names"
+        android:textColor="@color/yellow"
+        android:textSize="24sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

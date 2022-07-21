@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Bonken</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="play">Play</string>
+    <string name="back">Back</string>
+    <string name="undo">Undo</string>
+    <string name="calculate_score">Calculate Score</string>
+    <string name="play_again">Play Again</string>
+    <string name="enter_names">Enter player names</string>
+    <string name="player1"> Player 1:</string>
+    <string name="player2"> Player 2:</string>
+    <string name="player3"> Player 3:</string>
+    <string name="player4"> Player 4:</string>
+    <string name="score_not_13">Total score for this round does not equal 13\nPlease change the score</string>
+    <string name="score_not_24">Total score for this round does not equal 24\nPlease change the score</string>
+    <string name="score_not_10">Total score for this round does not equal 10\nPlease change the score</string>
+    <string name="score_not_26">Total score for this round does not equal 26\nPlease change the score</string>
+    <string name="troef_not_selected">Geen goede troef geselecteerd\nKies een goede troef</string>
+    <string name="end_of_game">Einde spel</string>
+    <string name="clear_names">Clear Names</string>
+    <string name="name">name</string>
+    <string name="Duiken">Duiken</string>
+    <string name="Hartenjagen">Hartenjagen</string>
+    <string name="Herenboeren">Herenboeren</string>
+    <string name="Vrouwen">Vrouwen</string>
+    <string name="Hartenheer">Hartenheer</string>
+    <string name="Laatste_slag">Laatste slag</string>
+    <string name="Domino">Domino</string>
+    <string name="Troeven1">Troeven ronde 1</string>
+    <string name="Troeven2">Troeven ronde 2</string>
+    <string name="Troeven3">Troeven ronde 3</string>
+    <string name="Troeven4">Troeven ronde 4</string>
+</resources>

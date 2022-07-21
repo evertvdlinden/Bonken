@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    tools:context=".SecondActivity"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_roundName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_shape"
+        android:padding="5pt"
+        android:text="@string/back"
+        android:textColor="@color/yellow"
+        android:textSize="24sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:alpha="100"
+        android:background="@drawable/button_shape"
+        android:padding="5pt"
+        android:text="@string/undo"
+        android:textColor="@color/yellow"
+        android:textSize="24sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintBottom_toTopOf="@+id/calculateScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/calculateScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_shape"
+        android:padding="5pt"
+        android:text="@string/calculate_score"
+        android:textColor="@color/yellow"
+        android:textSize="24sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_roundName">
+
+        <TableRow
+            android:id="@+id/rowPlayer1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/namePlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/scoreToAddPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="?attr/editTextBackground"
+                android:ems="2"
+                android:inputType="number"
+                android:maxEms="2"
+                android:maxLength="2"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/totalScorePlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowPlayer2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/namePlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/scoreToAddPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="?attr/editTextBackground"
+                android:ems="2"
+                android:inputType="number"
+                android:maxEms="2"
+                android:maxLength="2"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/totalScorePlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowPlayer3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/namePlayer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/scoreToAddPlayer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="?attr/editTextBackground"
+                android:ems="2"
+                android:inputType="number"
+                android:maxEms="2"
+                android:maxLength="2"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/totalScorePlayer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowPlayer4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/namePlayer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+
+            <EditText
+                android:id="@+id/scoreToAddPlayer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="?attr/editTextBackground"
+                android:ems="2"
+                android:inputType="number"
+                android:maxEms="2"
+                android:maxLength="2"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:backgroundTint="@color/yellow"
+                app:fontFamily="@font/amaranth"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/totalScorePlayer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                app:fontFamily="@font/amaranth" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/warningText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/endOfGameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/newGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:alpha="100"
+        android:background="@drawable/button_shape"
+        android:padding="5pt"
+        android:text="@string/play_again"
+        android:textColor="@color/yellow"
+        android:textSize="24sp"
+        app:fontFamily="@font/amaranth"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/spinner_shape"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

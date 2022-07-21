@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Initialize variables
     public static final String NAMES = "com.example.example.NAME";
     private EditText[] playerNames = new EditText[4];
     private Button playButton;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Initialize player name entries
         playerNames[0] = findViewById(R.id.editTextPlayer1);
         playerNames[1] = findViewById(R.id.editTextPlayer2);
         playerNames[2] = findViewById(R.id.editTextPlayer3);
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         playerNames[2].setFilters(new InputFilter[] {new InputFilter.LengthFilter(PLAYERLENGTH)});
         playerNames[3].setFilters(new InputFilter[] {new InputFilter.LengthFilter(PLAYERLENGTH)});
 
+        //Get player names from previous games
         Intent a = getIntent();
         String[] names = a.getStringArrayExtra(SecondActivity.NAMES);
         names = a.getStringArrayExtra(SecondActivity.NAMES);
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        //Play button functionality
         playButton = findViewById(R.id.button_play);
         playButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Clear names button functionality
         clearNamesButton = findViewById(R.id.clearNamesButton);
         clearNamesButton.setOnClickListener(new View.OnClickListener() {
             @Override

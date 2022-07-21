@@ -3,7 +3,6 @@ package com.example.bonken;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,24 +12,23 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class SecondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SecondActivity extends AppCompatActivity {
 
+    //Initialize variables and string arrays
     public static final String NAMES = "com.example.example.NAME";
-    public static final String SCORES = "com.example.example.SCORE";
-    public int roundCount;
-    public Integer[] pointLimit = {13, 13, 24, 24, 10, 10, 10, 26, 26, 26, 26};
-    public Integer[] warningStrings = {R.string.score_not_13, R.string.score_not_13,
+    private int roundCount;
+    private final Integer[] pointLimit = {13, 13, 24, 24, 10, 10, 10, 26, 26, 26, 26};
+    private final Integer[] warningStrings = {R.string.score_not_13, R.string.score_not_13,
             R.string.score_not_24, R.string.score_not_24, R.string.score_not_10,
             R.string.score_not_10, R.string.score_not_10, R.string.score_not_26,
             R.string.score_not_26, R.string.score_not_26, R.string.score_not_26};
-    public Integer[] roundNames = {R.string.Duiken, R.string.Hartenjagen, R.string.Herenboeren,
+    private final Integer[] roundNames = {R.string.Duiken, R.string.Hartenjagen, R.string.Herenboeren,
             R.string.Vrouwen, R.string.Hartenheer, R.string.Laatste_slag, R.string.Domino,
             R.string.Troeven1, R.string.Troeven2, R.string.Troeven3, R.string.Troeven4};
-    public List<String> troeven = new ArrayList<>();
-    public String removedTroef;
+    private List<String> troeven = new ArrayList<>();
+    private String removedTroef;
 
     private TextView[] playerNames = new TextView[4];
     private EditText[] tempScores = new EditText[4];
@@ -47,23 +45,25 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
     private TextView roundName;
     private Spinner dropDown;
 
-
+    //Functionality for everything that happens when the activity is created
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        //Get names from main activity
         Intent intent = getIntent();
         final String[] names = intent.getStringArrayExtra(MainActivity.NAMES);
         roundCount = 0;
         troeven.addAll(List.of("Kies troef", "Harten", "Klaveren", "Ruiten", "Schoppen", "Geen troef"));
 
+        //Dropdown menu for troeven
         dropDown = findViewById(R.id.spinner);
         dropDown.setVisibility(View.INVISIBLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, troeven);
         dropDown.setAdapter(adapter);
 
-
+        //Layout declarations
         newGameButton = findViewById(R.id.newGameButton);
         newGameButton.setVisibility(View.INVISIBLE);
 
@@ -93,6 +93,7 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
         roundName = findViewById(R.id.textview_roundName);
         roundName.setText(getResources().getString(R.string.Duiken));
 
+        //Functionality for back button
         previousButton = findViewById(R.id.button_previous);
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,8 +103,7 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-
-
+        //Functionality for undo button
         undoButton = findViewById(R.id.button_undo);
         undoButton.setVisibility(View.INVISIBLE);
         undoButton.setOnClickListener(new View.OnClickListener() {
@@ -124,10 +124,10 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
                     endOfGameText.setText("");
                     calculateButton.setVisibility(View.VISIBLE);
                     newGameButton.setVisibility(View.INVISIBLE);
-                    if (roundCount == 7 || roundCount == 11) {
+                    if (roundCount == 7 || roundCount == 11) { //Dropdown should be set to invisible
                         dropDown.setVisibility(View.INVISIBLE);
                     }
-                    if (roundCount > 6) {
+                    if (roundCount > 6) {//Removed troef should be added to list again
                         troeven.add(removedTroef);
                     }
                     roundCount--;
@@ -136,6 +136,7 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
+        //Functionality for calculating new scores
         calculateButton = findViewById(R.id.calculateScore);
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,11 +151,11 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
                         warningText.setText(getResources().getString(warningStrings[roundCount]));
                         return;
                     }
+                    //Checks if troef is selected
                     if (roundCount > 6 && dropDown.getSelectedItem().equals("Kies troef")) {
                         warningText.setText(getResources().getString(R.string.troef_not_selected));
                         return;
                     }
-
                     warningText.setText("");
 
                     //Converts temp scores to integers
@@ -176,20 +177,19 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
                     //Updates for the next round
                     undoButton.setVisibility(view.VISIBLE);
                     roundCount++;
-                    if (roundCount < 7) {
+                    if (roundCount < 7) {//First 7 rounds
                         roundName.setText(getResources().getString(roundNames[roundCount]));
-                    } else if (roundCount < 11) {
+                    } else if (roundCount < 11) {//Troef rounds
                         roundName.setText(getResources().getString(roundNames[roundCount]));
                         dropDown.setVisibility(View.VISIBLE);
-                        if (dropDown.getSelectedItem().equals("Kies troef")) {
+                        if (dropDown.getSelectedItem().equals("Kies troef")) {//Troef should be selected
                             return;
-                        } else {
+                        } else {//Troef is selected
                             removedTroef = dropDown.getSelectedItem().toString();
                             troeven.remove(dropDown.getSelectedItem());
                             dropDown.setAdapter(adapter);
-
                         }
-                    } else {
+                    } else {//End of game
                         endOfGameText.setText(getResources().getString(R.string.end_of_game));
                         calculateButton.setVisibility(view.INVISIBLE);
                         newGameButton.setVisibility(view.VISIBLE);
@@ -226,16 +226,6 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
     //Converts integer to edittext
     public void convertIntToEditText(Integer n, EditText s) {
         s.setText(String.valueOf(n));
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        warningText.setText("");
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }
 

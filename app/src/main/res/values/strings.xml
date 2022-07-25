@@ -30,4 +30,6 @@
     <string name="trumps2">Trumps round 2</string>
     <string name="trumps3">Trumps round 3</string>
     <string name="trumps4">Trumps round 4</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 </resources>
